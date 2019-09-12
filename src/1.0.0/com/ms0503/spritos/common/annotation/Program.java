@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 package com.ms0503.spritos.common.annotation;
 
 import com.ms0503.spritos.common.spritOS;

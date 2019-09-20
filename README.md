@@ -20,7 +20,7 @@ OK?
 *spritOS* is very petit OperatingSystem project.
 
 (*spritOS*はすごく小さなOSのプロジェクトです。)
+## require environment (動作環境)
+rc: Java 12.0.2
 
-This language is **Java**(12.0.2).
-
-(Java(12.0.2)を用いました。)
+推奨: Java 12.0.2

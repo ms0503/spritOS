@@ -1,26 +1,39 @@
 # spritOS
 English & 日本語　Readme
-## caution (注意)
+
+If you're developer: src/(Version)-Readme.txt
+
+開発者さんはsrc/(バージョン)-Readme.txtを。
+## Caution (注意)
 I'm Japanese.
 
 (私は日本人です。)
 
-I can written English.
+I can written English so-so.
 
-(私は英語を書くことができますが、)
-
-**But**, just a little.
-
-(結構下手です。)
+(私は少ししか英語を書くことができません。)
 
 OK?
 
 (分かりましたか?)
-## about spritOS (spritOSについて)
-*spritOS* is very petit OperatingSystem project.
+## About spritOS (spritOSについて)
+*spritOS* is Java API for easy deveropment.
 
-(*spritOS*はすごく小さなOSのプロジェクトです。)
-## require environment (動作環境)
-rc: Java 12.0.2
+(*spritOS*はJavaで簡単にソフト開発をする為のAPIです。)
+## Require environment (動作環境)
+recommended: Java 13.0.1
 
-推奨: Java 12.0.2
+推奨: Java 13.0.1
+## About me (ms0503について)
+### *ms0503*
+Age: 13 (13歳)
+
+PenName: Sora Tonami (ペンネーム: 渡波 空)
+
+HP: https://ms0503hp.ddo.jp/ (ホームページ)
+- - -
+Author: ms0503
+
+(執筆者: ms0503)
+
+*spritOS is ms0503 all right reserved.*

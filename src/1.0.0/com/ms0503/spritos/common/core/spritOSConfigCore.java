@@ -1,53 +1,41 @@
 package com.ms0503.spritos.common.core;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.ms0503.spritos.common.annotation.spritSoft;
+import org.jetbrains.annotations.NotNull;
 
-/**@author ms0503*/
+import java.io.*;
+import java.util.Properties;
 
+@spritSoft(id = "spritos_configcore", name = "spritOSConfigCore", version = spritOSCore.version, author = "ms0503")
 public class spritOSConfigCore {
-    /**
-     * newWinCfg()
-     * Windows環境のコンフィグ作成メソッド。
-     * try-catch(-finally)とnewUnixCfg()と一緒に使うと
-     * 良い感じ。かも?
-     *
-     * 戻り値は 成功=0 失敗=1
-     * @return 0 | 1
-     */
-    public int newWinCfg() {
+    public static int newWinCfg() throws Exception {
         try {
-            FileWriter cfgFile = new FileWriter("%USERPROFILE%/.spritOS/config.cfg");
+            FileWriter cfgFile = new FileWriter("%USERPROFILE%\\.spritOS\\spritOS.cfg");
             PrintWriter cfgWriter = new PrintWriter(new BufferedWriter(cfgFile));
-            cfgWriter.println("// Language Setting");
-            cfgWriter.println("lang=ja");
-            cfgWriter.println("");
             cfgWriter.println("// Home Directory Setting");
-            cfgWriter.println("home=%USERPROFILE%/spritOS");
+            cfgWriter.println("home=%USERPROFILE%\\spritOS");
             cfgWriter.close();
             return 0;
         } catch(IOException e) {
             return 1;
         }
     }
-
-    /**
-     * loadWinCfg()
-     * Windows環境のコンフィグ読み込みメソッド。
-     * try-catch(-finally)とloadUnixCfg()と使うと
-     * 良さげかな?
-     *
-     * 戻り値は 成功=0 失敗=1
-     * @return 0 | 1
-     */
-    public int loadWinCfg() {
+    public static int newWinCfg(String appName, @NotNull String[] cfg) throws Exception {
         try {
-            File cfgFile = new File("%USERPROFILE%/.spritOS/config.cfg");
+            FileWriter cfgFile = new FileWriter("%USERPROFILE%\\.spritOS\\" + appName + ".cfg");
+            PrintWriter cfgWriter = new PrintWriter(new BufferedWriter(cfgFile));
+            for(int i = 0; i > cfg.length; i++) {
+                cfgWriter.println(cfg[i]);
+            }
+            cfgWriter.close();
+            return 0;
+        } catch(IOException e) {
+            return 1;
+        }
+    }
+    public static int loadWinCfg() throws Exception {
+        try {
+            File cfgFile = new File("%USERPROFILE%\\.spritOS\\spritOS.cfg");
             Properties cfg = new Properties();
             cfg.load(new FileReader(cfgFile));
             return 0;
@@ -55,22 +43,20 @@ public class spritOSConfigCore {
             return 1;
         }
     }
-
-    /**
-     * newUnixCfg()
-     * UnixやLinuxのコンフィグ作成メソッド。
-     * try-catch(-finally)とnewWin(ry
-     *
-     * 戻り値は 成(ry
-     * @return 0 | 1
-     */
-    public int newUnixCfg() {
+    public static int loadWinCfg(String appName) throws Exception {
         try {
-            FileWriter cfgFile = new FileWriter("~/.spritOS/config.cfg");
+            File cfgFile = new File("%USERPROFILE%\\.spritOS\\" + appName + ".cfg");
+            Properties cfg = new Properties();
+            cfg.load(new FileReader(cfgFile));
+            return 0;
+        } catch(IOException e) {
+            return 1;
+        }
+    }
+    public static int newUnixCfg() throws Exception {
+        try {
+            FileWriter cfgFile = new FileWriter("~/.spritOS/spritOS.cfg");
             PrintWriter cfgWriter = new PrintWriter(new BufferedWriter(cfgFile));
-            cfgWriter.println("// Language Setting");
-            cfgWriter.println("lang=ja");
-            cfgWriter.println("");
             cfgWriter.println("// Home Directory Setting");
             cfgWriter.println("home=~/spritOS");
             cfgWriter.close();
@@ -79,18 +65,32 @@ public class spritOSConfigCore {
             return 1;
         }
     }
-
-    /**
-     * loadUnixCfg()
-     * UnixやLinuxのコンフィグ読み込みメソッド。
-     * t(ry
-     *
-     * 戻(ry
-     * @return 0 | 1
-     */
-    public int loadUnixCfg() {
+    public static int newUnixCfg(String appName, @NotNull String[] cfg) throws Exception {
         try {
-            File cfgFile = new File("~/.spritOS/config.cfg");
+            FileWriter cfgFile = new FileWriter("~/.spritOS/" + appName + ".cfg");
+            PrintWriter cfgWriter = new PrintWriter(new BufferedWriter(cfgFile));
+            for(int i = 0; i > cfg.length; i++) {
+                cfgWriter.println(cfg[i]);
+            }
+            cfgWriter.close();
+            return 0;
+        } catch(IOException e) {
+            return 1;
+        }
+    }
+    public static int loadUnixCfg() throws Exception {
+        try {
+            File cfgFile = new File("~/.spritOS/spritOS.cfg");
+            Properties cfg = new Properties();
+            cfg.load(new FileReader(cfgFile));
+            return 0;
+        } catch(IOException e) {
+            return 1;
+        }
+    }
+    public static int loadUnixCfg(String appName) throws Exception {
+        try {
+            File cfgFile = new File("~/.spritOS/" + appName + ".cfg");
             Properties cfg = new Properties();
             cfg.load(new FileReader(cfgFile));
             return 0;

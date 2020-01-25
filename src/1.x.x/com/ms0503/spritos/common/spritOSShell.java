@@ -7,16 +7,17 @@ import com.ms0503.spritos.server.core.spritOSPackageManager;
 import java.io.IOException;
 
 public class spritOSShell {
-    public void run() {
-        String[] cmd = new String[0];
+    public static void main(String[] args) {
         String cd = "/user";
+        String[] cmd = new String[0];
+        spritOSCore core = new spritOSCore();
         System.out.println("#################");
         System.out.println("# spritOS Shell #");
-        System.out.println("#   Ver.1.0.0   #");
+        System.out.println("#   Ver.1.1.0   #");
         System.out.println("#################");
         System.out.println("");
         try {
-            spritOSCore.program();
+            core.start();
         } catch(Exception e) {
             e.printStackTrace();
         }

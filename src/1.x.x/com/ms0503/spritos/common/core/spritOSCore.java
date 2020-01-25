@@ -2,16 +2,13 @@ package com.ms0503.spritos.common.core;
 
 /**@author ms0503*/
 
-public class spritOSCore {
+public class spritOSCore extends Thread {
     public static final String id = "spritos_main";
     public static final String name = "spritOS";
     public static final String version = "1.2.0";
     public static final String latest = version;
-    public static void init() throws Exception {
-    }
-    public static void postInit() throws Exception {
-    }
-    public static void program() throws Exception {
+    @Override
+    public void run() {
         try {
             System.out.println("Welcome to spritOS " + version+ " !");
             System.out.print("Config Loading...");
@@ -37,7 +34,7 @@ public class spritOSCore {
             Thread.sleep(1000);
             System.out.println("Starting...");
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

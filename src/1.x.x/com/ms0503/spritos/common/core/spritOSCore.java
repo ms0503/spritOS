@@ -1,17 +1,19 @@
 package com.ms0503.spritos.common.core;
 
-/**@author ms0503*/
+import static com.ms0503.spritos.common.core.spritOSLogCore.spritLog;
 
 public class spritOSCore extends Thread {
     public static final String id = "spritos_main";
     public static final String name = "spritOS";
     public static final String version = "1.2.0";
     public static final String latest = version;
+    public static final String runOS = System.getProperty("os.name").toLowerCase().startsWith("windows") ? "Win" : System.getProperty("os.name").toLowerCase().startsWith("mac") ? "Mac" : System.getProperty("os.name").toLowerCase().startsWith("linux") ? "Linux" : null;
     @Override
     public void run() {
         try {
             System.out.println("Welcome to spritOS " + version+ " !");
             System.out.print("Config Loading...");
+            spritLog("spritos_main: Config Loading...");
             byte cfgLoadFail = 0;
             int retCW = spritOSConfigCore.loadWinCfg();
             if (retCW == 1) {

@@ -49,6 +49,6 @@ com.ms0503.spritos.common.core.spritOSCore:end()     - After software executing,
 com.ms0503.spritos.common.core.spritOSLogCore - Logger
 com.ms0503.spritos.common.core.spritOSLogCore:spritLog(msg) - Logging "msg"
 
-com.ms0503.spritos.server.core.spritOSPackageManager - Package manager "SPaM"
-com.ms0503.spritos.server.core.spritOSPackageManager:spamInstall(appName)   - Software installing GitHub repository
+com.ms0503.spritos.client.core.spritOSPackageManager - Package manager "SPaM"
+com.ms0503.spritos.client.core.spritOSPackageManager:spamInstall(appName)   - Software installing GitHub repository
                                                      spamUninstall(appName) - Software uninstalling

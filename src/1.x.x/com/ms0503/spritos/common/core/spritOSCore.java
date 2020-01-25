@@ -1,10 +1,7 @@
 package com.ms0503.spritos.common.core;
 
-import com.ms0503.spritos.common.annotation.spritSoft;
-
 /**@author ms0503*/
 
-@spritSoft(id = spritOSCore.id, name = spritOSCore.name, version = spritOSCore.version, author = "ms0503")
 public class spritOSCore {
     public static final String id = "spritos_main";
     public static final String name = "spritOS";

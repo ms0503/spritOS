@@ -1,12 +1,10 @@
 package com.ms0503.spritos.common.core;
 
-import com.ms0503.spritos.common.annotation.spritSoft;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.util.Properties;
 
-@spritSoft(id = "spritos_configcore", name = "spritOSConfigCore", version = spritOSCore.version, author = "ms0503")
 public class spritOSConfigCore {
     public static int newWinCfg() throws Exception {
         try {

@@ -1,8 +1,5 @@
 package com.ms0503.spritos.common.core;
 
-
-import com.ms0503.spritos.common.annotation.spritSoft;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +7,6 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-@spritSoft(id = "spritos_logcore", name = "spritOSLogCore", version = spritOSCore.version, author = "ms0503")
 public class spritOSLogCore {
     public static void spritLog(String msg) throws Exception {
         Calendar now = Calendar.getInstance();

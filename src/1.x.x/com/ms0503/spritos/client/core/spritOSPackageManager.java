@@ -32,7 +32,7 @@ public class spritOSPackageManager extends Thread {
             spamUpload upload = new spamUpload(this.path, this.appName);
             upload.start();
         } else {
-            return;
+            System.out.println("");
         }
     }
 }
@@ -66,13 +66,7 @@ class spamInstall extends Thread {
                     throw new Exception();
                 }
                 dataInStream[i] = new DataInputStream(cnct[i].getInputStream());
-                if(spritOSCore.runOS == "Win") {
-                    dataOutStream[i] = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("%USERPROFILE%\\spritOS\\bin\\" + appName + ".spr")));
-                } else if(spritOSCore.runOS == "Mac" || spritOSCore.runOS == "Linux") {
-                    dataOutStream[i] = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("~/spritOS/bin/" + appName + ".spr")));
-                } else {
-                    return;
-                }
+                dataOutStream[i] = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(spritOSCore.getHomeDir() + "\\bin\\" + appName + ".spr")));
                 while (true) {
                     if (-1 == (readByte = dataInStream[i].read(b))) break;
                     dataOutStream[i].write(b, 0, readByte);
@@ -94,34 +88,17 @@ class spamUninstall extends Thread {
         try {
             for (int i = 0; i > appName.length; i++) {
                 File app;
-                if(spritOSCore.runOS == "Win") {
-                    app = new File("%USERPROFILE%\\spritOS\\bin\\" + appName + ".spr");
-                    if(app.exists()) {
-                        if(app.delete()) {
-                            spritLog("spritos_spam:spamUninstall: Successfully " + appName + " delete.");
-                        } else {
-                            spritLog("spritos_spam:spamUninstall: Failed " + appName + " delete.");
-                            continue;
-                        }
+                app = new File(spritOSCore.getHomeDir() + "\\bin\\" + appName + ".spr");
+                if(app.exists()) {
+                    if(app.delete()) {
+                        spritLog("spritos_spam:spamUninstall: Successfully " + appName + " delete.");
                     } else {
-                        spritLog("spritos_spam:spamUninstall: Application not found.");
-                        continue;
-                    }
-                } else if(spritOSCore.runOS == "Mac" || spritOSCore.runOS == "Linux") {
-                    app = new File("~/spritOS/bin/" + appName + ".spr");
-                    if(app.exists()) {
-                        if(app.delete()) {
-                            spritLog("spritos_spam:spamUninstall: Successfully " + appName + " delete.");
-                        } else {
-                            spritLog("spritos_spam:spamUninstall: Failed " + appName + " delete.");
-                            continue;
-                        }
-                    } else {
-                        spritLog("spritos_spam:spamUninstall: Application not found.");
+                        spritLog("spritos_spam:spamUninstall: Failed " + appName + " delete.");
                         continue;
                     }
                 } else {
-                    return;
+                    spritLog("spritos_spam:spamUninstall: Application not found.");
+                    continue;
                 }
             }
         } catch(Exception e) {
@@ -139,13 +116,7 @@ class spamUpload extends Thread {
     public void run() {
         try {
             File app;
-            if(spritOSCore.runOS == "Win") {
-                app = new File("%USERPROFILE%\\spritOS\\" + path + appName + ".spr");
-            } else if(spritOSCore.runOS == "Mac" || spritOSCore.runOS == "Linux") {
-                app = new File("~/spritOS/" + path + appName + ".spr");
-            } else {
-                return;
-            }
+            app = new File(spritOSCore.getHomeDir() + path + appName + ".spr");
             if(!app.exists()) {
                 throw new Exception();
             }

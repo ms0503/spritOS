@@ -40,7 +40,7 @@ public class spritOSShell {
                     if(spritOSCore.runOS == "Win") {
                         Runtime.getRuntime().exec("java -jar \"%USERPROFILE%\\spritOS\\bin\\" + cmd + ".spr\"");
                     } else if(spritOSCore.runOS == "Mac" || spritOSCore.runOS == "Linux") {
-                        Runtime.getRuntime().exec("java -jar \"~/spritOS/bin/" + cmd + ".spr");
+                        Runtime.getRuntime().exec("java -jar \"~/spritOS/bin/" + cmd + ".spr\"");
                     }
                 }
             }

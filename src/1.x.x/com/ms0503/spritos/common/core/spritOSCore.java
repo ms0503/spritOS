@@ -8,6 +8,15 @@ public class spritOSCore extends Thread {
     public static final String version = "1.2.0";
     public static final String latest = version;
     public static final String runOS = System.getProperty("os.name").toLowerCase().startsWith("windows") ? "Win" : System.getProperty("os.name").toLowerCase().startsWith("mac") ? "Mac" : System.getProperty("os.name").toLowerCase().startsWith("linux") ? "Linux" : null;
+    public static String getHomeDir() {
+        if(runOS == "Win") {
+            return "%USERPROFILE%\\spritOS";
+        } else if(runOS == "Mac" || runOS == "Linux") {
+            return "~/spritOS";
+        } else {
+            return null;
+        }
+    }
     @Override
     public void run() {
         try {

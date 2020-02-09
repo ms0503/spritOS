@@ -7,8 +7,8 @@ _spritOS_はJavaで簡単にソフト開発をする為のAPIです。
 recommended: Java 13.0.1  
 推奨: Java 13.0.1
 ## How to use (使い方)
-1. Download target/spritOS-x.x.x.jar　　
-   targetにあるspritOS-x.x.x.jarをダウンロード  
+1. Download: https://github.com/ms0503/spritOS/releases/  
+   ダウンロードは↑から。  
 2. Execute  
    ダブルクリックで実行
 3. If you want to end: `exit`  

@@ -3,43 +3,46 @@ package com.ms0503.spritos.common.core;
 /**
  * spritOS Logger
  * @author ms0503
- * @version 1.3.0
+ * @version 1.3.1
  * @since 1.0.0
  */
 
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import org.apache.log4j.Logger;
 
 public class spritOSLogCore extends Thread {
-    private final String id;
+    private final String lv;
+    public static Logger log = Logger.getLogger(spritOSLogCore.class);
     private final String msg;
     /**
      * spritOS Logger
-     * @param id AppID
+     * @param lv LogLevel
      * @param msg Message
      */
-    public spritOSLogCore(String id, String msg) {
-        this.id = id;
+    public spritOSLogCore(String lv, String msg) {
+        this.lv = lv;
         this.msg = msg;
         this.start();
     }
     @Override
     public void run() {
-        try {
-            Calendar now = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            FileWriter fw;
-            PrintWriter writer;
-            if(!new File(spritOSCore.getLogDir() + sdf.format(now.getTime()) + ".log").exists()) {
-                fw = new FileWriter(spritOSCore.getLogDir() + sdf.format(now.getTime()) + ".log", false);
-            } else {
-                fw = new FileWriter(spritOSCore.getLogDir() + sdf.format(now.getTime()) + ".log", true);
-            }
-            writer = new PrintWriter(new BufferedWriter(fw));
-            writer.println(id + ": " + msg);
-        } catch(IOException e) {
-            e.printStackTrace();
+        switch(lv) {
+            case "trace":
+                log.trace(msg);
+                break;
+            case "debug":
+                log.debug(msg);
+                break;
+            case "warn":
+                log.warn(msg);
+                break;
+            case "error":
+                log.error(msg);
+                break;
+            case "fatal":
+                log.fatal(msg);
+                break;
+            default:
+                log.info(msg);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.ms0503.spritos.common.core;
 /**
  * spritOS Core
  * @author ms0503
- * @version 1.3.0
+ * @version 1.3.1
  * @since 1.0.0
  */
 
@@ -75,7 +75,7 @@ public class spritOSCore extends Thread {
         try {
             System.out.println("Welcome to spritOS " + version+ " !");
             System.out.print("Config Loading...");
-            new spritOSLogCore("spritos_main", "Config Loading...");
+            new spritOSLogCore("info", "Config Loading...");
             Thread.sleep(1000);
             new spritOSConfigCore("load");
             System.out.println(" [  OK  ]");

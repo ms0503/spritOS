@@ -72,7 +72,7 @@ class spamInstall extends Thread {
                     Delete.delete(new File(appName[i] + ".zip"));
                 }
                 System.out.println("Installed " + appName[i] + " .");
-                new spritOSLogCore("spritos_spam:spamInstall", "Installed " + appName[i] + " .");
+                new spritOSLogCore("info", "Installed " + appName[i] + " .");
             }
         } catch(IOException e) {
             e.printStackTrace();

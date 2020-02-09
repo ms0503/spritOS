@@ -3,7 +3,7 @@ package com.ms0503.spritos.common.core;
 /**
  * spritOS Config Loader
  * @author ms0503
- * @version 1.3.0
+ * @version 1.3.1
  * @since 1.0.0
  */
 
@@ -61,7 +61,7 @@ class LoadCfg extends Thread {
             Properties cfg = new Properties();
             cfg.load(new FileReader(cfgFile));
         } catch(IOException e) {
-            new spritOSLogCore("spritos_cfg", "Config loading error.");
+            new spritOSLogCore("warn", "Config loading error.");
         }
     }
 }
@@ -83,7 +83,7 @@ class NewCfg extends Thread {
             }
             cfgWriter.close();
         } catch (IOException e) {
-            new spritOSLogCore("spritos_cfg", "Config make error.");
+            new spritOSLogCore("warn", "Config make error.");
         }
     }
 }
